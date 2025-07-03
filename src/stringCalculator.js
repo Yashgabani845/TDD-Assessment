@@ -3,8 +3,7 @@ function Add ( str ){
         return 0;
     }
     const numbers = str
-    .replace(/\n/g, ",")
-    .split(",")
+    .split(/[\n,]/)
     .map(s => s.trim())
     .filter(s => s !== "")
     .map(Number);
