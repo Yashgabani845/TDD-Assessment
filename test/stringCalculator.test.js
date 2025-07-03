@@ -18,5 +18,9 @@ describe("Addition", () => {
         expect(Add("10,20,30,40")).toBe(100);
      })
 
+     test('should consider new line as an delimiter', ()=>{
+        expect(Add("1\n2,3")).toBe(6);
+        expect(Add("1\n2\n3")).toBe(6);
+     })
 
 });
