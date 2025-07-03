@@ -1,6 +1,7 @@
 const  { Add } =  require('../src/stringCalculator');
 
 describe("Addition", () => {
+
     test('should return 0 on empty string', () => { 
         expect(Add("")).toBe(0);
      })
@@ -11,5 +12,11 @@ describe("Addition", () => {
         expect(Add("5")).toBe(5);
         expect(Add("1,")).toBe(1);
      })
+
+     test('should return sum of unknown number of numbers', ()=>{
+        expect(Add("1,2,3,4,5")).toBe(15);
+        expect(Add("10,20,30,40")).toBe(100);
+     })
+
 
 });
