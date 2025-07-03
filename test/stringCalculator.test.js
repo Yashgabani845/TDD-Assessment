@@ -5,4 +5,10 @@ describe("Addition", () => {
         expect(Add("")).toBe(0);
      })
     
+     test('should return sum of numbers on numbers', ()=>{
+        expect(Add("1,2")).toBe(3);
+        expect(Add("1,2,3")).toBe(6);
+        expect(Add("1")).toBe(1);
+     })
+
 });
