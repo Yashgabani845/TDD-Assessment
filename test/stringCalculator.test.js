@@ -23,4 +23,9 @@ describe("Addition", () => {
         expect(Add("1\n2\n3")).toBe(6);
      })
 
+     test('Support different delimiters',()=>{
+        expect(Add("//;\n1;2")).toBe(3);
+        expect(Add("//;\n1;2\n3;4")).toBe(10);
+     })
+
 });
