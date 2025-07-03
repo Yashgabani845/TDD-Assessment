@@ -2,7 +2,12 @@ function Add ( str ){
     if(str === ""){
         return 0;
     }
-    const numbers = str.split(",").map(s => Number(s.trim()));
+    const numbers = str
+    .split(",")
+    .map(s => s.trim())
+    .filter(s => s !== "")
+    .map(Number);
+    
     return numbers.reduce((accumulator, currentValue) => accumulator + currentValue , 0 );
     
 }
