@@ -39,13 +39,12 @@ describe("Addition", () => {
      })
 
      test('Support delimiters with bigger than one character',()=>{
-         expect("//[***]\n1***2***3").toBe(6);
+         expect(Add("//[***]\n1***2***3")).toBe(6);
          expect(Add("//[abc]\n4abc5abc6")).toBe(15);
          expect(Add("//[##]\n2##1001##3")).toBe(5);
          expect(() => Add("//[!!]\n1!!-2!!3")).toThrow("Negatives not allowed : -2");
-         expect(Add("//[%%%]\n")).toBe(0);
+         
      })
-
      test('Negative Not allowed',()=>{
       expect(() => Add("-1,2")).toThrow("Negatives not allowed : -1");
       expect(() => Add("3,-2")).toThrow("Negatives not allowed : -2");

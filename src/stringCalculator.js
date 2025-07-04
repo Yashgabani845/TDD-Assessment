@@ -10,13 +10,18 @@ function Add ( str ) {
     let delimiters = [",", "\n"];
     
     //custom delimiters
-    if(str.startsWith("//")){
+    if(str.startsWith("//[")){
+      let endIndex = str.indexOf("]\n");
+      let delimiter = str.substring(3, endIndex);
+      delimiters = [",", "\n", delimiter];
+      str = str.substring(endIndex + 2);
+    }
+    else if(str.startsWith("//")){
         let delimiter = str.substring(2,3);
-        delimiters.push(delimiter);
+        delimiters  = [",", "\n", delimiter];
         str = str.substring(4);
     }
 
-    //build regular expression with custom delimiters
     const regx = new RegExp(`[${delimiters.join("")}]`);
     const numbers = str
     .split(regx)
