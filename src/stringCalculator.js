@@ -11,10 +11,13 @@ function Add ( str ) {
     
     //custom delimiters
     if(str.startsWith("//[")){
-      let endIndex = str.indexOf("]\n");
-      let delimiter = str.substring(3, endIndex);
-      delimiters = [",", "\n", delimiter];
-      str = str.substring(endIndex + 2);
+        let delimiterSection = str.substring(2, str.indexOf("\n"));
+        const matches = delimiterSection.match(/\[([^\]]+)\]/g);
+       if(matches) {
+         const extracted = matches.map(d => d.slice(1, -1)); 
+         delimiters = [",", "\n", ...extracted];;
+       }
+        str = str.substring(str.indexOf("\n") + 1);
     }
     else if(str.startsWith("//")){
         let delimiter = str.substring(2,3);
