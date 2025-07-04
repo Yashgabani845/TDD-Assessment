@@ -24,8 +24,13 @@ function Add ( str ) {
         delimiters  = [",", "\n", delimiter];
         str = str.substring(4);
     }
+    //escape special characters
+    function escapeForRegex(str) {
+        return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    }
 
-    const regx = new RegExp(`[${delimiters.join("")}]`);
+    const regx = new RegExp(delimiters.map(escapeForRegex).join("|"));
+
     const numbers = str
     .split(regx)
     .map(s => s.trim())
