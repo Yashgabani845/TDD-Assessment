@@ -50,6 +50,12 @@ describe("Addition", () => {
         expect(Add("//[*][%]\n1*2%3")).toBe(6);
         expect(Add("//[*][%]\n1*2%3%4")).toBe(10);
      })
+
+     test('handle multiple delimiters with length longer than one char',()=>{
+        expect(Add("//[**][%%]\n1**2%%3")).toBe(6);
+        expect(Add("//[**][%%]\n1**2%%3%%4")).toBe(10);
+     });
+
      test('Negative Not allowed',()=>{
       expect(() => Add("-1,2")).toThrow("Negatives not allowed : -1");
       expect(() => Add("3,-2")).toThrow("Negatives not allowed : -2");
