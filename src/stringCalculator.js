@@ -22,7 +22,8 @@ function Add ( str ) {
     .split(regx)
     .map(s => s.trim())
     .filter(s => s !== "")
-    .map(Number);
+    .map(Number)
+    .filter(n => n <= 1000);
 
     //check for negative numbers
     const negatives = numbers.filter(n => n < 0);
