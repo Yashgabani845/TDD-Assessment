@@ -48,6 +48,14 @@ describe("Addition", () => {
       expect(() => Add("-1,-2,-3")).toThrow("Negatives not allowed : -1,-2,-3");
      })
 
+     test('Numbers bigger than 1000 should be ignored',()=>{
+      expect(Add("1001,2")).toBe(2);
+      expect(Add("1001,2,3")).toBe(5);
+      expect(Add("1000,1")).toBe(1001);
+      expect(Add("1001,2000,3")).toBe(3);
+      expect(Add("1001,2001")).toBe(0); 
+     })
+
 
 });
 
