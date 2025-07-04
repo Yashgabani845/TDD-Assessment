@@ -21,9 +21,9 @@ function Add ( str ){
     .map(Number);
 
     //check for negative numbers
-    const negative = numbers.find(n => n < 0);
-    if (negative !== undefined) {
-        throw new Error("Negatives not allowed : " + negative);
+    const negatives = numbers.filter(n => n < 0);
+    if (negatives.length > 0) {
+        throw new Error("Negatives not allowed : " + negatives.join(","));
     }
 
     return numbers.reduce((accumulator, currentValue) => accumulator + currentValue , 0 );
