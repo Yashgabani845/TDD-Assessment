@@ -33,5 +33,10 @@ describe("Addition", () => {
       expect(() => Add("3,-2")).toThrow("Negatives not allowed : -2");
      })
 
+     test('Multiple Negative Value Not allowed',()=>{
+      expect(() => Add("-1,-2,3")).toThrow("Negatives not allowed : -1,-2");
+      expect(() => Add("-1,-2,-3")).toThrow("Negatives not allowed : -1,-2,-3");
+     })
+
 
 });
