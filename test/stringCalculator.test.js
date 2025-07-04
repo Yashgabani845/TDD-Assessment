@@ -28,6 +28,27 @@ describe("Addition", () => {
         expect(Add("10,20,30,40")).toBe(100);
      })
 
+     test('Negative Not allowed',()=>{
+      expect(() => Add("-1,2")).toThrow("Negatives not allowed : -1");
+      expect(() => Add("3,-2")).toThrow("Negatives not allowed : -2");
+     })
+
+     test('Multiple Negative Value Not allowed',()=>{
+      expect(() => Add("-1,-2,3")).toThrow("Negatives not allowed : -1,-2");
+      expect(() => Add("-1,-2,-3")).toThrow("Negatives not allowed : -1,-2,-3");
+     })
+
+     test('Numbers bigger than 1000 should be ignored',()=>{
+      expect(Add("1001,2")).toBe(2);
+      expect(Add("1001,2,3")).toBe(5);
+      expect(Add("1000,1")).toBe(1001);
+      expect(Add("1001,2000,3")).toBe(3);
+      expect(Add("1001,2001")).toBe(0); 
+     })
+});
+
+describe('Delimiters', () => {
+    
      test('should consider new line as an delimiter', ()=>{
         expect(Add("1\n2,3")).toBe(6);
         expect(Add("1\n2\n3")).toBe(6);
@@ -55,26 +76,4 @@ describe("Addition", () => {
         expect(Add("//[**][%%]\n1**2%%3")).toBe(6);
         expect(Add("//[**][%%]\n1**2%%3%%4")).toBe(10);
      });
-
-     test('Negative Not allowed',()=>{
-      expect(() => Add("-1,2")).toThrow("Negatives not allowed : -1");
-      expect(() => Add("3,-2")).toThrow("Negatives not allowed : -2");
-     })
-
-     test('Multiple Negative Value Not allowed',()=>{
-      expect(() => Add("-1,-2,3")).toThrow("Negatives not allowed : -1,-2");
-      expect(() => Add("-1,-2,-3")).toThrow("Negatives not allowed : -1,-2,-3");
-     })
-
-     test('Numbers bigger than 1000 should be ignored',()=>{
-      expect(Add("1001,2")).toBe(2);
-      expect(Add("1001,2,3")).toBe(5);
-      expect(Add("1000,1")).toBe(1001);
-      expect(Add("1001,2000,3")).toBe(3);
-      expect(Add("1001,2001")).toBe(0); 
-     })
-
-
-
-});
-
+   });
