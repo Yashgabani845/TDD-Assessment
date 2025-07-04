@@ -28,4 +28,10 @@ describe("Addition", () => {
         expect(Add("//;\n1;2\n3;4")).toBe(10);
      })
 
+     test('Negative Not allowed',()=>{
+      expect(Add("-1,2")).toThrow("negative not allowed : -1");
+      expect(Add("3,-2")).toThrow("negative not allowed : -2");
+     })
+     
+
 });
