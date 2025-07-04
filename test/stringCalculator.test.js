@@ -29,9 +29,9 @@ describe("Addition", () => {
      })
 
      test('Negative Not allowed',()=>{
-      expect(Add("-1,2")).toThrow("negative not allowed : -1");
-      expect(Add("3,-2")).toThrow("negative not allowed : -2");
+      expect(() => Add("-1,2")).toThrow("Negatives not allowed : -1");
+      expect(() => Add("3,-2")).toThrow("Negatives not allowed : -2");
      })
-     
+
 
 });

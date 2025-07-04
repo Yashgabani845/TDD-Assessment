@@ -20,6 +20,12 @@ function Add ( str ){
     .filter(s => s !== "")
     .map(Number);
 
+    //check for negative numbers
+    const negative = numbers.find(n => n < 0);
+    if (negative !== undefined) {
+        throw new Error("Negatives not allowed : " + negative);
+    }
+
     return numbers.reduce((accumulator, currentValue) => accumulator + currentValue , 0 );
     
 }
