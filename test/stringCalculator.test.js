@@ -1,4 +1,4 @@
-const  { Add } =  require('../src/stringCalculator');
+const  { Add , GetCalledCount } =  require('../src/stringCalculator');
 
 describe("Addition", () => {
 
@@ -40,3 +40,13 @@ describe("Addition", () => {
 
 
 });
+
+describe('GetCalledCount', () => {
+   test("should return number of times Add() is called", () => {
+    expect(GetCalledCount()).toBe(0);
+    Add("1,2");
+    Add("3");
+    expect(GetCalledCount()).toBe(2);
+   })
+});
+

@@ -1,4 +1,4 @@
-function Add ( str ){
+function Add ( str ) {
     if(str === ""){
         return 0;
     }
@@ -12,6 +12,7 @@ function Add ( str ){
         delimiters.push(delimiter);
         str = str.substring(4);
     }
+
     //build regular expression with custom delimiters
     const regx = new RegExp(`[${delimiters.join("")}]`);
     const numbers = str
@@ -22,6 +23,7 @@ function Add ( str ){
 
     //check for negative numbers
     const negatives = numbers.filter(n => n < 0);
+
     if (negatives.length > 0) {
         throw new Error("Negatives not allowed : " + negatives.join(","));
     }
@@ -30,4 +32,8 @@ function Add ( str ){
     
 }
 
-module.exports= { Add };
+function GetCalledCount () {
+    return 0;
+}
+
+module.exports= { Add , GetCalledCount };
