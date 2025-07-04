@@ -1,4 +1,7 @@
+let callCount = 0;
+
 function Add ( str ) {
+    callCount++;
     if(str === ""){
         return 0;
     }
@@ -33,7 +36,7 @@ function Add ( str ) {
 }
 
 function GetCalledCount () {
-    return 0;
+    return callCount;
 }
 
 module.exports= { Add , GetCalledCount };

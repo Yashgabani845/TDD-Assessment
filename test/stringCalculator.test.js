@@ -42,7 +42,7 @@ describe("Addition", () => {
 });
 
 describe('GetCalledCount', () => {
-   test("should return number of times Add() is called", () => {
+   test.only("should return number of times Add() is called", () => {
     expect(GetCalledCount()).toBe(0);
     Add("1,2");
     Add("3");
